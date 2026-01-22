@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUGANZA MASIMANGO CHRIS - Biographie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gold: #D4AF37;
+            --shadow-light: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation fixe en haut */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-light);
+            padding: 1rem 0;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: #555;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary-gradient);
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .nav-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Header avec navigation intégrée */
+        .hero-header {
+            min-height: 100vh;
+            background: var(--primary-gradient);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+        
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.3);
+            box-shadow: var(--shadow-light);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 120px 0 100px 0;
+            min-height: 100vh;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 3rem;
+            position: relative;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        /* Biography */
+        .bio-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            text-align: justify;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+        }
+        
+        /* Photos Gallery - ✅ PHOTOS EN ENTIÉRETÉ */
+        .photo-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+        }
+        
+        .photo-card {
+            flex: 0 0 320px;         /* ✅ Plus large */
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            max-height: 420px;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* ✅ PHOTOS EN ENTIÉRETÉ - SANS COUPURE */
+        .photo-card img {
+            width: 100%;
+            height: 280px;           /* ✅ Hauteur augmentée */
+            object-fit: contain;     /* ✅ AFFICHAGE COMPLET */
+            object-position: center;
+            padding: 10px;           /* ✅ Petit espace interne */
+            background: #f8f9ff;     /* ✅ Fond clair */
+            border-radius: 15px 15px 0 0;
+            display: block;
+        }
+        
+        .photo-caption {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Family Table */
+        .family-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .family-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .family-table th {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .family-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .family-table tr:hover {
+            background: #f8f9ff;
+        }
+        
+        .relation-badge {
+            background: var(--accent-gold);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-gradient);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #b8942f;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .profile-image { width: 200px; height: 200px; }
+            .nav-buttons { 
+                flex-wrap: wrap; 
+                gap: 0.5rem; 
+                padding: 0 1rem; 
+            }
+            .nav-btn { 
+                padding: 10px 20px; 
+                font-size: 0.9rem; 
+            }
+            .bio-content { padding: 2rem 1.5rem; }
+            
+            /* ✅ Responsive photos complètes */
+            .photo-card img {
+                height: 240px;
+                padding: 8px;
+            }
+            .photo-card {
+                flex: 0 0 280px;
+            }
+        }
+        
+        /* Scrollbar custom */
+        .photo-gallery::-webkit-scrollbar { 
+            height: 8px; 
+        }
+        .photo-gallery::-webkit-scrollbar-track { 
+            background: #f1f1f1; 
+            border-radius: 10px; 
+        }
+        .photo-gallery::-webkit-scrollbar-thumb { 
+            background: var(--primary-gradient); 
+            border-radius: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Fixe -->
+    <nav class="main-nav">
+        <div class="nav-buttons">
+            <a href="#biographie" class="nav-btn active" onclick="scrollToSection('biographie')">
+                <i class="fas fa-user"></i>Biographie
+            </a>
+            <a href="#photos" class="nav-btn" onclick="scrollToSection('photos')">
+                <i class="fas fa-images"></i>Photos
+            </a>
+            <a href="#proches" class="nav-btn" onclick="scrollToSection('proches')">
+                <i class="fas fa-heart"></i>Proches
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <div class="container">
+            <!-- ✅ PHOTO PROFIL LOCALE -->
+            <img src="profil.jpg" alt="MUGANZA MASIMANGO CHRIS" class="profile-image" 
+                 onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'">
+            <h1 class="hero-title">MUGANZA MASIMANGO CHRIS</h1>
+            <p class="lead mb-5">Un parcours d'excellence et d'inspiration</p>
+        </div>
+    </header>
+
+    <!-- Biographie -->
+    <section id="biographie" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Biographie</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bio-content">
+                        <p>Muganza Masimango Chris incarne l'esprit d'excellence et de détermination qui définit les grands destins. Né au cœur de la vibrante République Démocratique du Congo, il a très tôt manifesté une passion débordante pour l'apprentissage et le service à la communauté. Son parcours académique exemplaire, jalonné de distinctions et de défis relevés avec brio, témoigne d'une intelligence rare alliée à une persévérance inébranlable.</p>
+                        <p>Professionnel accompli dans les domaines de la gestion des ressources humaines et des technologies de l'information, Muganza excelle dans la conception de systèmes innovants et la formation des talents de demain. Sa vision stratégique lui a permis de mener à bien des projets d'envergure, transformant des idées audacieuses en réalités concrètes qui profitent à des milliers de personnes. Chaque obstacle surmonté a forgé son caractère d'acier et enrichi sa sagesse.</p>
+                        <p>Au-delà de ses accomplissements professionnels, Muganza se distingue par son engagement humanitaire et sa générosité sans limites envers sa famille et ses proches. Leader naturel doté d'une charisme magnétique, il inspire tous ceux qui ont la chance de croiser son chemin. Son histoire n'est pas seulement celle d'un succès personnel, mais bien celle d'un phare guidant les générations futures vers l'excellence et le service désintéressé.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos Gallery ✅ TOUTES LOCALES & ENTIÈRETÉ -->
+    <section id="photos" class="section">
+        <div class="container">
+            <h2 class="section-title">Moments Inoubliables</h2>
+            <div class="photo-gallery">
+                <div class="photo-card">
+                    <img src="galerie1.jpg" alt="Moment 1" 
+                         onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop'">
+                    <div class="photo-caption">
+                        <h5>Remise de diplôme</h5>
+                        <p>Un moment de triomphe académique</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="galerie2.jpg" alt="Moment 2" 
+                         onerror="this.src='https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=250&fit=crop'">
+                    <div class="photo-caption">
+                        <h5>Conférence pro</h5>
+                        <p>Partage d'expertise</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="galerie3.jpg" alt="Moment 3" 
+                         onerror="this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop'">
+                    <div class="photo-caption">
+                        <h5>Voyage</h5>
+                        <p>Découverte culturelle</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="galerie4.jpg" alt="Moment 4" 
+                         onerror="this.src='https://images.unsplash.com/photo-1506869640319-fe1a24fd76f7?w=400&h=250&fit=crop'">
+                    <div class="photo-caption">
+                        <h5>Famille</h5>
+                        <p>Liens d'amour</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="galerie5.jpg" alt="Moment 5" 
+                         onerror="this.src='https://images.unsplash.com/photo-1517457373958-b7bdd4587206?w=400&h=250&fit=crop'">
+                    <div class="photo-caption">
+                        <h5>Projet</h5>
+                        <p>Réalisation vision</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proches -->
+    <section id="proches" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Famille & Proches</h2>
+            <div class="family-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Nom Complet</th>
+                            <th>Adresse</th>
+                            <th>Email</th>
+                            <th>Lien</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mashimango Marie-Claire</td>
+                            <td>Av. Lumumba, Lubumbashi</td>
+                            <td>marie@mashimango.cd</td>
+                            <td><span class="relation-badge">Mère</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Muganza Paulin</td>
+                            <td>Rue de la Poste, Lubumbashi</td>
+                            <td>paulin@muganza.cd</td>
+                            <td><span class="relation-badge">Père</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Elisabeth Kabila</td>
+                            <td>Katanga Central</td>
+                            <td>elisabeth@famille.cd</td>
+                            <td><span class="relation-badge">Sœur</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Jean-Pierre Muganza</td>
+                            <td>Quartier Kenya</td>
+                            <td>jeanpierre@muganza.cd</td>
+                            <td><span class="relation-badge">Frère</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Thérèse Mushagalusa</td>
+                            <td>Upemba, Haut-Lomami</td>
+                            <td>therese@famille.cd</td>
+                            <td><span class="relation-badge">Tante</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">© 2026 - Site biographique de MUGANZA MASIMANGO CHRIS</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" onclick="scrollToTop()" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navigation intelligente
+        window.addEventListener('scroll', function() {
+            const sections = ['biographie', 'photos', 'proches'];
+            const navLinks = document.querySelectorAll('.nav-btn');
+            
+            let current = 'biographie';
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element.getBoundingClientRect().top <= 100) {
+                    current = section;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Bouton retour haut
+            document.getElementById('backToTop').classList.toggle('show', window.pageYOffset > 300);
+        });
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Effets galerie
+        document.querySelectorAll('.photo-card').forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
